@@ -186,5 +186,14 @@ def player_numbers(team)
   p "Sorry"
 end
 
+def team_names
+  names = Array.new
+  game_hash.each { |name,info|
+    names << info[:team_name]
+  }
+  names
+end
+
+
 
 # Write code here
