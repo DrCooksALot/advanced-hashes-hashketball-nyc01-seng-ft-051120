@@ -127,7 +127,7 @@ def game_hash
 end
 
 
-def num_points_score(player_name)
+def num_points_scored(player_name)
   hash_info = game_info
   
   hash_info.each { |team_name,team_info| 
