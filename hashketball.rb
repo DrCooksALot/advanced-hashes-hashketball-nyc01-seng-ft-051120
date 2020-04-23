@@ -143,5 +143,20 @@ def num_points_scored(player_name)
 end
 
 
+def shoe_size(player_name)
+  hash_info = game_hash
+  
+  hash_info.each { |team_name,team_info| 
+    team_info[:players].each { |player_stats|
+      if player_stats[:player_name] == player_name
+        return player_stats[:shoe_size]
+      end
+    }
+  }
+
+  p "Sorry"
+end
+
+
 
 # Write code here
