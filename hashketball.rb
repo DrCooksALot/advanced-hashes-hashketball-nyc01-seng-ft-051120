@@ -206,6 +206,22 @@ def player_stats(name)
   p "Sorry"
 end
 
+def big_shoe_rebounds
+  largest_shoe_size = 0
+  largest_shoe_player = String.new
+  game_hash.each { |side,info|
+    info[:players].each { |player_stats|
+      if player_stats[:shoe] > largest_shoe_size
+        largest_shoe_size = player_stats[:shoe]
+        largest_shoe_player = player_stats[:player_name]
+      end
+    }
+  }
+  player_stats(largest_shoe_player)[:rebounds]
+end
+
+
+
 
 
 # Write code here
