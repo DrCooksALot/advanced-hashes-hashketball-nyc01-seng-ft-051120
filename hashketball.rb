@@ -126,4 +126,21 @@ def game_hash
   }
 end
 
+
+def num_points_score(player_name)
+  hash_info = game_info
+  
+  hash_info.each { |team_name,team_info| 
+    team_info[:players].each { |player_stats|
+      if player_stats[:player_name] == name
+        return player_stats[:points]
+      end
+    }
+  }
+
+  p "Sorry"
+
+end
+
+
 # Write code here
