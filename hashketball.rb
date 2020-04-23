@@ -170,5 +170,21 @@ def team_colors(team)
 end
 
 
+def player_numbers(team)
+  
+  info_hash = game_hash
+  
+  info_hash.each { |name,info|
+    if info[:team_name] == team
+      team_numbers = Array.new
+      info[:players].each { |player|
+        team_numbers << player[:number]
+      }
+      return team_numbers
+    end
+  }
+  p "Sorry"
+end
+
 
 # Write code here
