@@ -194,6 +194,17 @@ def team_names
   names
 end
 
+def player_stats(name)
+  game_hash.each{ |side,info|
+    info[:players].each { |player_stats|
+      if player_stats[:player_name] == name
+        return player_stats[:player_name].select{ |stat,stat_value| stat != :player_name }
+      end
+    }
+  }
+  p "Sorry"
+end
+
 
 
 # Write code here
