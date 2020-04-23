@@ -126,4 +126,102 @@ def game_hash
   }
 end
 
+
+def num_points_scored(player_name)
+  hash_info = game_hash
+  
+  hash_info.each { |team_name,team_info| 
+    team_info[:players].each { |player_stats|
+      if player_stats[:player_name] == player_name
+        return player_stats[:points]
+      end
+    }
+  }
+
+  p "Sorry"
+
+end
+
+
+def shoe_size(player_name)
+  hash_info = game_hash
+  
+  hash_info.each { |team_name,team_info| 
+    team_info[:players].each { |player_stats|
+      if player_stats[:player_name] == player_name
+        return player_stats[:shoe]
+      end
+    }
+  }
+
+  p "Sorry"
+end
+
+def team_colors(team)
+  hash_info = game_hash
+  hash_info.each{ |team_name,team_info| 
+    
+    if team_info[:team_name] == team
+      return team_info[:colors]
+    end
+
+  }
+
+end
+
+
+def player_numbers(team)
+  
+  info_hash = game_hash
+  
+  info_hash.each { |name,info|
+    if info[:team_name] == team
+      team_numbers = Array.new
+      info[:players].each { |player|
+        team_numbers << player[:number]
+      }
+      return team_numbers
+    end
+  }
+  p "Sorry"
+end
+
+def team_names
+  names = Array.new
+  game_hash.each { |name,info|
+    names << info[:team_name]
+  }
+  names
+end
+
+def player_stats(name)
+  game_hash.each{ |side,info|
+    info[:players].each { |player_stats|
+      if player_stats[:player_name] == name
+        return player_stats
+        #.select{ |stat,stat_value| stat != :player_name }
+      end
+    }
+  }
+  p "Sorry"
+end
+
+def big_shoe_rebounds
+  largest_shoe_size = 0
+  largest_shoe_player = String.new
+  game_hash.each { |side,info|
+    info[:players].each { |player_stats|
+      if player_stats[:shoe] > largest_shoe_size
+        largest_shoe_size = player_stats[:shoe]
+        largest_shoe_player = player_stats[:player_name]
+      end
+    }
+  }
+  player_stats(largest_shoe_player)[:rebounds]
+end
+
+
+
+
+
 # Write code here
