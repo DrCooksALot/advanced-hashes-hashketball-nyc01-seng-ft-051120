@@ -128,7 +128,7 @@ end
 
 
 def num_points_scored(player_name)
-  hash_info = game_info
+  hash_info = game_hash
   
   hash_info.each { |team_name,team_info| 
     team_info[:players].each { |player_stats|
